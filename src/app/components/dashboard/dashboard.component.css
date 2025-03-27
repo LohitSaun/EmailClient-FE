@@ -1,0 +1,19 @@
+.tab-buttons {
+  margin-bottom: 1rem;
+}
+.tab-buttons button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #eee;
+  cursor: pointer;
+}
+.tab-buttons button.active {
+  background: #333;
+  color: white;
+}
+.tab-content {
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}

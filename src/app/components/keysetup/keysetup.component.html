@@ -1,0 +1,35 @@
+<div class="max-w-xl mx-auto bg-white p-6 rounded shadow mt-6">
+  <h3 class="text-xl font-semibold mb-4">Key Setup</h3>
+
+  <label class="block text-sm mb-1">Your Public Key Gist URL</label>
+
+  <ng-container *ngIf="isKeySet; else editableInput">
+    <input
+      [value]="gistUrl"
+      class="w-full border rounded px-3 py-2 mb-4 bg-gray-100 text-gray-600 cursor-not-allowed"
+      disabled
+    />
+  </ng-container>
+
+  <ng-template #editableInput>
+    <input
+      [(ngModel)]="gistUrl"
+      class="w-full border rounded px-3 py-2 mb-4"
+      placeholder="Enter your Gist URL"
+    />
+    <button
+      (click)="save()"
+      class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mb-4"
+    >
+      Save Public Key
+    </button>
+  </ng-template>
+
+  <label class="block text-sm mb-1">Upload Your Private Key</label>
+  <input type="file" (change)="handleUpload($event)" class="mb-4" />
+
+  <p class="text-sm text-gray-500 mb-4">
+    Only the public key is stored on the server. The private key stays on your
+    device.
+  </p>
+</div>

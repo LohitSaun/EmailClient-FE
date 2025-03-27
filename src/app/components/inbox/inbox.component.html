@@ -1,0 +1,18 @@
+<div class="max-w-2xl mx-auto mt-6">
+  <h2 class="text-2xl font-semibold mb-4">Inbox</h2>
+
+  <div *ngFor="let msg of messages()" class="bg-white rounded shadow p-4 mb-4">
+    <div class="text-gray-600 text-sm mb-1">
+      From: <strong>{{ msg.sender }}</strong> |
+      {{ msg.timestamp | date : "short" }}
+    </div>
+    <ng-container *ngIf="msg.decrypted(); else loading">
+      <p class="text-gray-800 whitespace-pre-wrap">
+        {{ msg.decrypted() }}
+      </p>
+    </ng-container>
+    <ng-template #loading>
+      <p class="text-gray-500 italic">Decrypting...</p>
+    </ng-template>
+  </div>
+</div>

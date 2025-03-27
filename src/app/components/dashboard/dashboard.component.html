@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<div class="flex space-x-4 p-4 bg-gray-100 rounded">
+  <button (click)="activeTab = 'inbox'" [ngClass]="tabClass('inbox')">
+    Inbox
+  </button>
+  <button (click)="activeTab = 'compose'" [ngClass]="tabClass('compose')">
+    Compose
+  </button>
+  <button (click)="activeTab = 'settings'" [ngClass]="tabClass('settings')">
+    Settings
+  </button>
+</div>
+
+<app-inbox *ngIf="activeTab === 'inbox'"></app-inbox>
+<app-compose *ngIf="activeTab === 'compose'"></app-compose>
+<app-key-setup *ngIf="activeTab === 'settings'"></app-key-setup>

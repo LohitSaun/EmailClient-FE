@@ -1,0 +1,28 @@
+<div class="max-w-xl mx-auto bg-white p-6 rounded shadow mt-6">
+  <h2 class="text-2xl font-semibold mb-4">Compose Email</h2>
+
+  <label class="block text-sm mb-1">Recipient GitHub Username</label>
+  <label class="block text-sm mb-1">Recipient</label>
+  <select
+    [(ngModel)]="selectedUsername"
+    class="w-full border rounded px-3 py-2 mb-4"
+  >
+    <option *ngFor="let user of userList" [value]="user.username">
+      {{ user.username }}
+    </option>
+  </select>
+
+  <label class="block text-sm mb-1">Message</label>
+  <textarea
+    [(ngModel)]="message"
+    rows="5"
+    class="w-full border rounded px-3 py-2 mb-4"
+  ></textarea>
+
+  <button
+    (click)="send()"
+    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+  >
+    Send Encrypted
+  </button>
+</div>
