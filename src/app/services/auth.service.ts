@@ -13,7 +13,7 @@ export class AuthService {
 
   loginWithGitHub() {
     const clientId = 'Ov23lidiz3rzArwCr5F1';
-    const redirectUri = 'http://localhost:4200/auth/callback';
+    const redirectUri = 'https://emailclient-fe.onrender.com/auth/callback';
     let scope = 'read:user user:email';
     window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
   }
